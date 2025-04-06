@@ -26,7 +26,7 @@
                 <input type="password" name="password_confirmation" class="form-control" id="exampleInputPassword2"
                        required>
             </div>
-            <div style="display:flex; flex-direction: row; justify-content: space-between">
+            <div class="buttons">
                 <button type="submit" class="btn btn-primary">Зарегистрироваться</button>
                 <div>
                     <a href="/login" class="btn btn-secondary">Авторизоваться</a>

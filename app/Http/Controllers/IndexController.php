@@ -20,19 +20,4 @@ class IndexController extends Controller
 
         return view('pages.welcome');
     }
-
-    public function login(): View
-    {
-        return view('pages.auth.login');
-    }
-
-    public function register(): View
-    {
-        return view('pages.auth.register');
-    }
-
-    public function forgot(): View
-    {
-        return view('pages.auth.forgot');
-    }
 }

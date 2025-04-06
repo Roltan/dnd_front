@@ -12,7 +12,7 @@
             <input type="email" name="email" class="form-control" id="exampleInputEmail1"
                    aria-describedby="emailHelp" required>
         </div>
-        <div style="display:flex; flex-direction: row; justify-content: space-between">
+        <div class="buttons">
             <button type="submit" class="btn btn-primary">Отправить</button>
             <div>
                 <a href="/register" class="btn btn-secondary">Зарегистрироваться</a>

@@ -1,3 +1,9 @@
 #spinner .modal-dialog {
     max-width: 4rem;
 }
+
+form .buttons {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between
+}

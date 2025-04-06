@@ -16,7 +16,7 @@
             <label for="exampleInputPassword1" class="form-label">Пароль</label>
             <input type="password" name="password" class="form-control" id="exampleInputPassword1" required>
         </div>
-        <div style="display:flex; flex-direction: row; justify-content: space-between">
+        <div class="buttons">
             <button type="submit" class="btn btn-primary">Войти</button>
             <div>
                 <a href="/register" class="btn btn-secondary">Зарегистрироваться</a>

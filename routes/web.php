@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\IndexController;
+use App\Http\Controllers\AuthController;
 
 /*
 |--------------------------------------------------------------------------
@@ -15,6 +16,8 @@ use App\Http\Controllers\IndexController;
 */
 
 Route::get('/', [IndexController::class, 'index']);
-Route::get('/login', [IndexController::class, 'login']);
-Route::get('/register', [IndexController::class, 'register']);
-Route::get('/forgot', [IndexController::class, 'forgot']);
+
+Route::get('/login', [AuthController::class, 'login']);
+Route::get('/register', [AuthController::class, 'register']);
+Route::get('/forgot', [AuthController::class, 'forgot']);
+Route::get('/password/reset', [AuthController::class, 'reset']);
