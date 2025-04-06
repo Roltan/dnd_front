@@ -6,7 +6,7 @@
 
 @section('mainContent')
     <br><br>
-    <form id="login-form" class="container">
+    <form id="forgot-form" class="container">
         <div class="mb-3">
             <label for="exampleInputEmail1" class="form-label">Адрес электронной почты</label>
             <input type="email" name="email" class="form-control" id="exampleInputEmail1"

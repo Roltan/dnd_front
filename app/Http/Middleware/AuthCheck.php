@@ -18,9 +18,8 @@ class AuthCheck
     {
         $status = Http::withHeaders([
             'Authorization' => 'Bearer ' . $request->cookie('auth_token')
-        ])->get(env('APP_URL') . '/auth/api/check')
-            ->json();
-        if (!$status['authenticated'])
+        ])->get(env('APP_URL') . '/auth/api/check');
+        if (!$status->json()['authenticated'])
             return redirect('/login')->with('error', 'Перед посещением той страницы необходимо авторизоваться');
 
         return $next($request);

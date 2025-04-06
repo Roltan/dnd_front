@@ -20,8 +20,7 @@ document
             .then((response) => response.json())
             .then((data) => {
                 if (data.status) {
-                    let token = data.token;
-                    document.cookie = `auth_token=${token}; 604800000; path=/; Secure; SameSite=Lax`;
+                    document.cookie = `auth_token=${data.token}; 604800000; path=/; Secure; SameSite=Lax`;
                     window.location = '/';
                 } else {
                     modal(data.message);

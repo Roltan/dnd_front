@@ -2,7 +2,7 @@ import {modal, message} from "../../util/modal.js";
 import {load} from "../../util/spiner.js";
 
 document
-    .querySelector('#login-form')
+    .querySelector('#forgot-form')
     .addEventListener('submit', function (event) {
         event.preventDefault();
         load();
