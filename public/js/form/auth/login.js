@@ -19,7 +19,7 @@ document
             .then((data) => {
                 if (data.status) {
                     // document.cookie = `auth_token=${data.token}; max-age=${Date.now() + 7 * 24 * 60 * 60}; path=/; SameSite=Lax`;
-                    // window.location = '/';
+                    window.location = '/';
                 } else {
                     modal(data.message);
                 }

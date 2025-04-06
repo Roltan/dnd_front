@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AuthController;
 use App\Http\Controllers\ComponentController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
@@ -18,3 +19,5 @@ use Illuminate\Support\Facades\Route;
 Route::group(['prefix'=>'/component'],function(){
     Route::get('/modal', [ComponentController::class, 'modal']);
 });
+
+Route::get('/logout', [AuthController::class, 'logout'])->middleware('auth.custom');
