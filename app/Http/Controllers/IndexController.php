@@ -8,16 +8,8 @@ use Illuminate\Contracts\View\View;
 
 class IndexController extends Controller
 {
-    public function index(Request $request)
+    public function index()
     {
-        $status = Http::withHeaders([
-            'Authorization' => 'Bearer ' . $request->cookie('auth_token')
-//                'Authorization' => 'Bearer 7|pOZW0lisFSuaTjQ9RNIDknU7X7QKeuX2lJbJV7Ft09b06219'
-        ])->get(env('APP_URL') . '/auth/api/check')
-            ->json();
-        if (!$status['authenticated'])
-            return redirect('/login');
-
         return view('pages.welcome');
     }
 }
