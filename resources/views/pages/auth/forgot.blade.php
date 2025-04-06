@@ -1,7 +1,7 @@
 @extends('/blocks/pattern')
 
 @section('links')
-    <script defer type="module" src="/js/form/auth/login.js"></script>
+    <script defer type="module" src="/js/form/auth/forgot.js"></script>
 @endsection
 
 @section('mainContent')
@@ -12,15 +12,11 @@
             <input type="email" name="email" class="form-control" id="exampleInputEmail1"
                    aria-describedby="emailHelp" required>
         </div>
-        <div class="mb-3">
-            <label for="exampleInputPassword1" class="form-label">Пароль</label>
-            <input type="password" name="password" class="form-control" id="exampleInputPassword1" required>
-        </div>
         <div style="display:flex; flex-direction: row; justify-content: space-between">
-            <button type="submit" class="btn btn-primary">Войти</button>
+            <button type="submit" class="btn btn-primary">Отправить</button>
             <div>
                 <a href="/register" class="btn btn-secondary">Зарегистрироваться</a>
-                <a href="/forgot" class="btn btn-secondary">Забыл пароль</a>
+                <a href="/login" class="btn btn-secondary">Авторизоваться</a>
             </div>
         </div>
     </form>

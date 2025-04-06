@@ -1,4 +1,4 @@
-import {error} from "../../util/error.js";
+import {modal} from "../../util/modal.js";
 
 document
     .querySelector('#login-form')
@@ -22,7 +22,7 @@ document
                     document.cookie = `auth_token=${token}; 604800000; path=/; Secure; SameSite=Lax`;
                     window.location = '/';
                 } else {
-                    error(data.message);
+                    modal(data.message);
                 }
             });
     });

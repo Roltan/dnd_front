@@ -16,5 +16,5 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::group(['prefix'=>'/component'],function(){
-    Route::get('/error', [ComponentController::class, 'error']);
+    Route::get('/modal', [ComponentController::class, 'modal']);
 });

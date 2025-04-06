@@ -30,4 +30,9 @@ class IndexController extends Controller
     {
         return view('pages.auth.register');
     }
+
+    public function forgot(): View
+    {
+        return view('pages.auth.forgot');
+    }
 }

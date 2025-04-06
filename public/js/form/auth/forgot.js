@@ -1,28 +1,26 @@
-import {modal} from "../../util/modal.js";
+import {modal, message} from "../../util/modal.js";
+import {load} from "../../util/spiner.js";
 
 document
-    .querySelector('#register-form')
+    .querySelector('#login-form')
     .addEventListener('submit', function (event) {
         event.preventDefault();
+        load();
 
-        fetch('/auth/api/register', {
+        fetch('/auth/api/password/forgot', {
             method: 'post',
             headers: {
                 "Content-Type": "application/json",
             },
             body: JSON.stringify({
-                name: this.querySelector('input[name="name"]').value,
                 email: this.querySelector('input[name="email"]').value,
-                password: this.querySelector('input[name="password"]').value,
-                password_confirmation: this.querySelector('input[name="password_confirmation"]').value
             })
         })
             .then((response) => response.json())
             .then((data) => {
+                load();
                 if (data.status) {
-                    let token = data.token;
-                    document.cookie = `auth_token=${token}; 604800000; path=/; Secure; SameSite=Lax`;
-                    window.location = '/';
+                    message('Вам на почту было отправлено письмо с ссылкой для восстановления пароля');
                 } else {
                     modal(data.message);
                 }
