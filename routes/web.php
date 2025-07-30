@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\IndexController;
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\CreateHeroController;
 
 /*
 |--------------------------------------------------------------------------
@@ -21,3 +22,9 @@ Route::get('/login', [AuthController::class, 'login']);
 Route::get('/register', [AuthController::class, 'register']);
 Route::get('/forgot', [AuthController::class, 'forgot']);
 Route::get('/password/reset', [AuthController::class, 'reset']);
+
+Route::group(['prefix' => '/create'], function () {
+    Route::group(['prefix' => '/hero'], function () {
+        Route::get('/', [CreateHeroController::class, 'step1']);
+    });
+});
