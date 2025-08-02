@@ -63,6 +63,17 @@
                 </div>
             </div>
 
+            {{-- Происхождение --}}
+            <div class="mb-3">
+                <label for="background" class="form-label">Происхождение</label>
+                <select class="form-select" id="background">
+                    <option selected value="">Откройте это меню выбора</option>
+                    @foreach ($background as $item)
+                        <option value="{{$item}}">{{$item}}</option>
+                    @endforeach
+                </select>
+            </div>
+
             <button type="submit" class="btn btn-primary">Отправить</button>
         </form>
     </div>
