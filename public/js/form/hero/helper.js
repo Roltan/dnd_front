@@ -7,7 +7,7 @@ function displaySub(subList, parentInput, subInput) {
         subInput.parentElement.className = "col-md-6";
         subInput.disabled = false;
         subInput.innerHTML =
-            "<option selected value=''>Откройте это меню выбора</option>";
+            "<option selected value='' class='emptyOption'>Откройте это меню выбора</option>";
 
         subList.forEach((item) => {
             const option = document.createElement("option");
@@ -20,7 +20,7 @@ function displaySub(subList, parentInput, subInput) {
         subInput.parentElement.className = "col-md-4";
         subInput.disabled = true;
         subInput.innerHTML =
-            "<option selected value=''>Откройте это меню выбора</option>";
+            "<option selected value='' class='emptyOption'>Откройте это меню выбора</option>";
     }
 }
 
