@@ -12,11 +12,13 @@ function displaySubKlass() {
                 if (lvlInput.value >= data.lvlSubKlass) {
                     const wrap = klassInput.parentElement;
                     // меняем класс
-                    if (wrap.className == "mb-3") wrap.className = "col-md-6";
+                    if (wrap.className != "col-md-6")
+                        wrap.className = "col-md-6";
 
                     // отображаем под классы
                     const subInput = document.querySelector("#subKlass");
-                    subInput.parentElement.style.display = "block";
+                    subInput.disabled = false;
+                    subInput.parentElement.className = "col-md-6";
 
                     subInput.innerHTML =
                         "<option selected>Откройте это меню выбора</option>";

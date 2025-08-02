@@ -28,7 +28,7 @@
 
             {{-- класс --}}
             <div class="row g-3 mb-3">
-                <div class="mb-3">
+                <div class="col-md-8">
                     <label for="klass" class="form-label">Класс</label>
                     <select class="form-select" id="klass">
                         <option selected>Откройте это меню выбора</option>
@@ -37,9 +37,9 @@
                         @endforeach
                     </select>
                 </div>
-                <div class="col-md-6" style="display: none">
+                <div class="col-md-4">
                     <label for="subKlass" class="form-label">Под класс</label>
-                    <select class="form-select" id="subKlass">
+                    <select class="form-select" id="subKlass" disabled>
                         <option selected>Откройте это меню выбора</option>
                     </select>
                 </div>
