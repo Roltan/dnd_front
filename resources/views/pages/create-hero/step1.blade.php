@@ -2,6 +2,7 @@
 
 @section('links')
 <script defer src="/js/form/hero/lvl.js"></script>
+<script defer src="/js/form/hero/klass.js"></script>
 @endsection
 
 @section('mainContent')
@@ -27,13 +28,19 @@
 
             {{-- класс --}}
             <div class="row g-3 mb-3">
-                <div class="col-md-6">
+                <div class="mb-3">
                     <label for="klass" class="form-label">Класс</label>
                     <select class="form-select" id="klass">
                         <option selected>Откройте это меню выбора</option>
                         @foreach ($klass as $item)
                             <option value="{{$item}}">{{$item}}</option>
                         @endforeach
+                    </select>
+                </div>
+                <div class="col-md-6" style="display: none">
+                    <label for="subKlass" class="form-label">Под класс</label>
+                    <select class="form-select" id="subKlass">
+                        <option selected>Откройте это меню выбора</option>
                     </select>
                 </div>
             </div>
