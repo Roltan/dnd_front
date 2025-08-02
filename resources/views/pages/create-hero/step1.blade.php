@@ -1,19 +1,21 @@
 @extends('/blocks/pattern')
 
 @section('links')
-<script defer src="/js/form/hero/lvl.js"></script>
-<script defer src="/js/form/hero/klass.js"></script>
+<script defer type="module" src="/js/form/hero/lvl.js"></script>
+<script defer type="module" src="/js/form/hero/klass.js"></script>
+<script defer type="module" src="/js/form/hero/race.js"></script>
 @endsection
 
 @section('mainContent')
     @include('blocks.header')
-    <div class="container mt-4">
+    <div class="container mt-4" style="max-width: 720px">
         <form>
             {{-- имя --}}
             <div class="mb-3">
                 <label for="hero-name" class="form-label">Имя персонажа</label>
                 <input type="text" class="form-control" id="hero-name">
             </div>
+
             {{-- уровень --}}
             <div class="row g-3 mb-3">
                 <div class="col-md-6">
@@ -31,7 +33,7 @@
                 <div class="col-md-8">
                     <label for="klass" class="form-label">Класс</label>
                     <select class="form-select" id="klass">
-                        <option selected>Откройте это меню выбора</option>
+                        <option selected value="">Откройте это меню выбора</option>
                         @foreach ($klass as $item)
                             <option value="{{$item}}">{{$item}}</option>
                         @endforeach
@@ -40,29 +42,23 @@
                 <div class="col-md-4">
                     <label for="subKlass" class="form-label">Под класс</label>
                     <select class="form-select" id="subKlass" disabled>
-                        <option selected>Откройте это меню выбора</option>
+                        <option selected value="">Откройте это меню выбора</option>
                     </select>
                 </div>
             </div>
 
             {{-- раса --}}
             <div class="row g-3 mb-3">
-                <div class="col-md-6">
+                <div class="col-md-8">
                     <label for="race" class="form-label">Раса</label>
                     <select class="form-select" id="race">
-                        <option selected>Откройте это меню выбора</option>
-                        <option value="1">Один</option>
-                        <option value="2">Два</option>
-                        <option value="3">Три</option>
+                        <option selected value="">Откройте это меню выбора</option>
                     </select>
                 </div>
-                <div class="col-md-6">
-                    <label for="sub-race" class="form-label">Под раса</label>
-                    <select class="form-select" id="sub-race">
-                        <option selected>Откройте это меню выбора</option>
-                        <option value="1">Один</option>
-                        <option value="2">Два</option>
-                        <option value="3">Три</option>
+                <div class="col-md-4">
+                    <label for="subRace" class="form-label">Под раса</label>
+                    <select class="form-select" id="subRace" disabled>
+                        <option selected value="">Откройте это меню выбора</option>
                     </select>
                 </div>
             </div>
