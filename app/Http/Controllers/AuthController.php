@@ -46,8 +46,7 @@ class AuthController extends Controller
             ->json();
 
         return $response['status'] === true ?
-            redirect('/')->cookie('auth_token', null, 1440) :
+            redirect('/')->cookie(cookie('auth_token', null, 1440, httpOnly: false)) :
             redirect('/')->with('error', $response['message']);
     }
-
 }

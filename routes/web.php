@@ -26,7 +26,7 @@ Route::get('/password/reset', [AuthController::class, 'reset']);
 Route::group(['prefix' => '/create'], function () {
     Route::group(['prefix' => '/hero'], function () {
         Route::get('/list', [CreateHeroController::class, 'drafts'])->middleware('auth.custom');
-        Route::get('/{draftHero?}', [CreateHeroController::class, 'general'])->middleware('auth.custom');
+        Route::get('/{draftId?}', [CreateHeroController::class, 'general'])->middleware('auth.custom');
         Route::get('/roll', [CreateHeroController::class, 'roll'])->middleware('auth.custom');
         Route::post('/roll', [CreateHeroController::class, 'roll'])->middleware('auth.custom');
     });

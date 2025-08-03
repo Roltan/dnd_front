@@ -4,6 +4,7 @@
 <script defer type="module" src="/js/form/hero/lvl.js"></script>
 <script defer type="module" src="/js/form/hero/klass.js"></script>
 <script defer type="module" src="/js/form/hero/race.js"></script>
+<script defer type="module" src="/js/form/hero/draft.js"></script>
 @endsection
 
 @section('mainContent')
@@ -11,6 +12,8 @@
     <div class="container mt-4" style="max-width: 720px">
         <form action="/create/hero/roll" method="post">
             @csrf
+            <input type="hidden" name="id" id="draft_id" value="{{ $draft->id }}">
+
             {{-- имя --}}
             <div class="mb-3">
                 <label for="hero-name" class="form-label">Имя персонажа</label>
