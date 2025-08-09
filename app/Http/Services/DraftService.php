@@ -22,9 +22,20 @@ class DraftService extends Service
 
     public function getOne(?int $id)
     {
+        $response = Http::withHeader('Authorization', 'Bearer ' . request()->cookie('auth_token'));
+        if ($id == null) {
+            $response = $response->post(env('APP_URL') . '/hero/api/draft/new');
+        } else {
+            $response = $response->get(env('APP_URL') . '/hero/api/draft/' . $id);
+        }
+
+        $response = $response->json();
+        if (!$response['status'])
+            return back()->with('error', $response['message']);
+
         if ($id == null)
             return (object) [
-                'id' => null,
+                'id' => $response['id'],
                 "hero_name" =>  null,
                 "lvl" => null,
                 "exp" => null,
@@ -34,13 +45,6 @@ class DraftService extends Service
                 "sub_race" => null,
                 "background" => null
             ];
-
-        $response = Http::withHeader('Authorization', 'Bearer ' . request()->cookie('auth_token'))
-            ->get(env('APP_URL') . '/hero/api/draft/' . $id)
-            ->json();
-
-        if (!$response['status'])
-            return back()->with('error', $response['message']);
 
         $response['draft']['id'] = $id;
 

@@ -1,9 +1,7 @@
 @extends('/blocks/pattern')
 
 @section('links')
-<script defer type="module" src="/js/form/hero/lvl.js"></script>
-<script defer type="module" src="/js/form/hero/klass.js"></script>
-<script defer type="module" src="/js/form/hero/race.js"></script>
+    <script defer type="module" src="/js/form/hero/deleteDraft.js"></script>
 @endsection
 
 @section('mainContent')
@@ -12,7 +10,12 @@
         <div class="d-flex flex-column gap-3">
             <a href="/create/hero" class="btn btn-primary">Создать нового персонажа</a>
             @foreach ($drafts as $draft)
-                <a href="{{ $draft->href }}" class="btn btn-primary">{{ $draft->title }}</a>
+                <div class="d-flex gap-2">
+                    <a href="{{ $draft->href }}" class="btn btn-primary flex-grow-1">{{ $draft->title }}</a>
+                    <button class="btn btn-outline-danger delete-draft" data-id="{{ $draft->id }}">
+                        <i class="bi bi-trash"></i> <!-- Иконка корзины из Bootstrap Icons -->
+                    </button>
+                </div>
             @endforeach
         </div>
     </div>
