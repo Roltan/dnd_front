@@ -33,6 +33,8 @@
     @endif
 
     @yield('mainContent')
+    @yield('style')
+    @yield('script')
 </body>
 
 </html>

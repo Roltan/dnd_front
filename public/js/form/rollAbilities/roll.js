@@ -1,4 +1,5 @@
 import { Dice6 } from "../../dices/Dice6.js";
+import { initDrag } from "./dragAbility.js";
 
 const scene = document.getElementById("dice-scene");
 const RollBtn = document.getElementById("rollDice");
@@ -39,5 +40,15 @@ function handleRollComplete(value) {
 		completedRolls = 0;
 		currentValues = [];
 		HistoryList.innerHTML += `<div>${topThreeSum}</div>`;
+		if (roll == 0) changeScene();
 	}
+}
+
+// переключение сцен
+function changeScene() {
+	scene.remove();
+	document.getElementById("roll").remove();
+	document.getElementById("title").innerText = "Перетащите значения к характеристикам";
+	document.getElementById("abilities").style.display = "block";
+	initDrag();
 }
