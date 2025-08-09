@@ -22,6 +22,7 @@ class GeneralInfoRequest extends FormRequest
     public function rules(): array
     {
         return [
+            'id' => ['required', 'numeric', 'min:1'],
             'hero_name' => ['required', 'filled', 'string'],
             'lvl' => ['required', 'numeric', 'min:1', 'max:20'],
             'exp' => ['nullable', 'numeric', 'min:0', 'max:355000'],

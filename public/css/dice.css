@@ -1,0 +1,98 @@
+#dice-scene {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+	gap: 30px; /* Отступ между кубиками */
+	width: 100%;
+	padding: 20px;
+	box-sizing: border-box;
+	max-width: 1200px; /* Ограничиваем максимальную ширину контейнера */
+	margin: 0 auto; /* Центрируем контейнер */
+}
+
+.dice-scene {
+	width: 150px;
+	height: 150px;
+	perspective: 600px;
+	position: relative;
+}
+
+.dice {
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	transform-style: preserve-3d;
+	transition: transform 1s ease-out;
+	--half-size: 75px; /* Половина от 150px */
+}
+
+.dice-face {
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	background: rgba(255, 255, 255, 0.9);
+	border: 2px solid #333;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	box-shadow: inset 0 0 20px rgba(0, 0, 0, 0.1);
+	font-size: 4rem;
+	font-weight: bold;
+	color: #333;
+	box-sizing: border-box;
+}
+
+/* Правильные трансформации для граней */
+.dice-face--front {
+	transform: rotateY(0deg) translateZ(var(--half-size));
+}
+.dice-face--right {
+	transform: rotateY(90deg) translateZ(var(--half-size));
+}
+.dice-face--back {
+	transform: rotateY(180deg) translateZ(var(--half-size));
+}
+.dice-face--left {
+	transform: rotateY(-90deg) translateZ(var(--half-size));
+}
+.dice-face--top {
+	transform: rotateX(90deg) translateZ(var(--half-size));
+}
+.dice-face--bottom {
+	transform: rotateX(-90deg) translateZ(var(--half-size));
+}
+
+@media (max-width: 600px) {
+	.dice-scene {
+		width: 120px;
+		height: 120px;
+	}
+	.dice {
+		--half-size: 60px; /* Половина от 120px */
+	}
+	.dice-face {
+		font-size: 3rem;
+	}
+}
+
+@media (max-width: 400px) {
+	.dice-scene {
+		width: 100px;
+		height: 100px;
+	}
+	.dice {
+		--half-size: 50px; /* Половина от 100px */
+	}
+	.dice-face {
+		font-size: 2rem;
+	}
+}
+
+@keyframes rolling {
+	0% {
+		transform: rotateX(0) rotateY(0);
+	}
+	100% {
+		transform: rotateX(var(--rotate-x)) rotateY(var(--rotate-y));
+	}
+}

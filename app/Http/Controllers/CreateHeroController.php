@@ -36,8 +36,8 @@ class CreateHeroController extends Controller
 
     public function roll(GeneralInfoRequest $request): View
     {
-        $data = $request->validated();
+        $draft = (object) ['id' => $request->id];
 
-        return view('pages.create-hero.step2');
+        return view('pages.create-hero.step2', ['draft' => $draft]);
     }
 }
