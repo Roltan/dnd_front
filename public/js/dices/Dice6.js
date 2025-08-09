@@ -70,15 +70,13 @@ class Dice6 {
 
 		this.isRolling = true;
 		this.setValue(value);
-		const duration = 1 + Math.random();
+		const duration = 1.5 + Math.random();
 
 		// Добавляем класс анимации
-		// this.diceElement.classList.add("rolling");
 		this.diceElement.style.animation = `rolling ${duration}s ease-out`;
 
-		// // По окончании анимации
+		// По окончании анимации
 		setTimeout(() => {
-			// this.diceElement.classList.remove("rolling");
 			this.diceElement.style.animation = "unset";
 			this.isRolling = false;
 

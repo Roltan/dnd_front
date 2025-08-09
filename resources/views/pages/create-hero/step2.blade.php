@@ -28,14 +28,12 @@
                 </div>
 
                 <button id="rollDice" class="btn btn-primary btn-lg mt-4">Бросить кубики</button>
-                <button id="resetBtn" class="btn btn-outline-secondary btn-lg mt-4 ms-2">Сбросить</button>
             </div>
 
             <div class="col-md-6 mt-4 mt-md-0">
                 <div class="card">
-                    <div class="card-body">
+                    <div class="card-body" id="history">
                         <h5 class="card-title">История бросков</h5>
-                        <div id="history" class="text-start"></div>
                     </div>
                 </div>
             </div>

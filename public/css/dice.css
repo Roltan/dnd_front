@@ -2,7 +2,7 @@
 	display: flex;
 	flex-wrap: wrap;
 	justify-content: center;
-	gap: 30px; /* Отступ между кубиками */
+	gap: 60px; /* Отступ между кубиками */
 	width: 100%;
 	padding: 20px;
 	box-sizing: border-box;
@@ -11,8 +11,8 @@
 }
 
 .dice-scene {
-	width: 150px;
-	height: 150px;
+	width: 140px;
+	height: 140px;
 	perspective: 600px;
 	position: relative;
 }
@@ -23,7 +23,7 @@
 	height: 100%;
 	transform-style: preserve-3d;
 	transition: transform 1s ease-out;
-	--half-size: 75px; /* Половина от 150px */
+	--half-size: 70px; /* Половина от 150px */
 }
 
 .dice-face {
