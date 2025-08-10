@@ -3,6 +3,7 @@
 @section('links')
     <link rel="stylesheet" href="/css/dice.css">
     <script defer type="module" src="/js/dices/Dice6.js"></script>
+    <script defer type="module" src="/js/form/rollAbilities/page.js"></script>
     <script defer type="module" src="/js/form/rollAbilities/roll.js"></script>
     <script defer type="module" src="/js/form/rollAbilities/dragAbility.js"></script>
     {{-- <script defer type="module" src="/js/form/hero/draft.js"></script> --}}
@@ -11,7 +12,16 @@
 @section('mainContent')
     @include('blocks.header')
 
-    <div class="container py-5 text-center">
+    <div class="container mt-4 selectPage" style="max-width: 720px">
+        <div class="d-flex flex-column gap-3 text-center">
+            <p class="lead" id="title">Выберете способ распределения характеристик</p>
+            <button class="btn btn-primary" id="rollPageBtn">Броском костей</button>
+            <button class="btn btn-primary" id="presetBtn">Распределением значений</button>
+            <button class="btn btn-primary" id="..Btn">«Покупкой» значений</button>
+        </div>
+    </div>
+
+    <div class="container py-5 text-center rollPage" style="display: none">
         <p class="lead" id="title">Бросьте кубики</p>
 
         <div class="col-12 d-flex justify-content-center" id="dice-scene">
@@ -93,6 +103,7 @@
                         <div id="history"></div>
                     </div>
                 </div>
+                <button class="btn btn-primary btn-lg mt-4" style="display: none" id="submit">Продолжить</button>
             </div>
         </div>
     </div>
@@ -144,6 +155,18 @@
             background-color: #e9ecef;
             border-color: #0d6efd !important;
             transform: scale(1.05);
+        }
+
+        @media (max-width: 770px) {
+            #history.dragging {
+                position: fixed;
+                top: 50px;
+                right: 10px;
+                padding: 10px;
+                border: 1px solid var(--bs-card-border-color);
+                border-radius: 15px;
+                flex-direction: column;
+            }
         }
     </style>
 @endsection

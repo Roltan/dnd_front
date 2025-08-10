@@ -1,9 +1,11 @@
 var historyContainer = [];
 var abilityCards = [];
+var count = 6;
 
 function initDrag() {
 	historyContainer = document.getElementById("history");
 	abilityCards = document.querySelectorAll("#abilities .card-body");
+	historyContainer.classList.add("dragging");
 
 	// Инициализация перетаскиваемых элементов истории
 	initHistoryValues();
@@ -92,6 +94,9 @@ function initAbilityCards() {
 					const draggedElement = document.getElementById(sourceId);
 					if (draggedElement && draggedElement.parentNode === historyContainer) {
 						draggedElement.remove();
+						count--;
+
+						if (count == 0) document.getElementById("submit").style.display = "block";
 					}
 				}
 			}
@@ -103,7 +108,11 @@ function updateModifier(element, value) {
 	const modifierValue = Math.floor((value - 10) / 2);
 	const modifierElement = element.closest(".card-body").querySelector("h2");
 	if (modifierElement) {
-		modifierElement.textContent = `+${modifierValue}`;
+		if (modifierValue >= 0) {
+			modifierElement.textContent = `+${modifierValue}`;
+		} else {
+			modifierElement.textContent = `${modifierValue}`;
+		}
 	}
 }
 
